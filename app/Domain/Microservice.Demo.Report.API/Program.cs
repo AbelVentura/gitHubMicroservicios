@@ -18,9 +18,24 @@ namespace Microservice.Demo.Report.API
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
+                .ConfigureLogging(loggign =>
+                {
+                    loggign.SetMinimumLevel(LogLevel.Information);
+                    loggign.AddConsole();                    
+                })
+                .ConfigureAppConfiguration((webHostBuilderContext, configurationBuilder) =>
+                {                
+                    ILoggerFactory factory = new LoggerFactory();
+                    var provider = new DebugLoggerProvider();
+                    factory.AddProvider(provider);
+
+                    var hostingEnvironment = webHostBuilderContext.HostingEnvironment;
+                    configurationBuilder.AddConfigServer(hostingEnvironment.EnvironmentName, factory);
+                })                
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
                 });
+    }
     }
 }
