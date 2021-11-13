@@ -1,6 +1,22 @@
 version: '3.4'
 
 services:
+ ########################################################## microservice.demo.report.api ################################################################################
+  microservice.demo.report.api:
+    image: ${DOCKER_REGISTRY-}microservicedemoreportapi
+    container_name: Microservice.Demo.Report.Api
+    mem_limit: 256m
+    mem_reservation: 128M
+    cpus: 0.25
+    environment:      
+      - ASPNETCORE_URLS=http://::80
+    ports:
+      - "80"      
+    build:
+      context: .
+      dockerfile: app/Domain/Microservice.Demo.Report.API/Dockerfile
+    networks:
+      - backend
 ########################################################## microservices.demo.product.api ################################################################################
   microservices.demo.product.api:
     image: ${DOCKER_REGISTRY-}microservicesdemoproductapi
