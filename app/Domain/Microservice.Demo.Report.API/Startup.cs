@@ -1,3 +1,6 @@
+using MediatR;
+using Microservice.Demo.Report.API.Infrastructure.Configuration;
+using Microservice.Demo.Report.API.Infrastructure.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -11,6 +14,7 @@ using Steeltoe.Discovery.Client;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 
 namespace Microservice.Demo.Report.API
@@ -28,6 +32,9 @@ namespace Microservice.Demo.Report.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDiscoveryClient(Configuration);
+            services.AddConfigurations(Configuration);
+            services.AddMediatR(Assembly.GetExecutingAssembly());
+            services.AddDataServices(Configuration);
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Microservice.Demo.Report.API", Version = "v1" });
@@ -43,7 +50,8 @@ namespace Microservice.Demo.Report.API
             {
                 app.UseDeveloperExceptionPage();
             }
-
+            app.UseDiscoveryClient();
+            app.UseSwagger();
             app.UseSwaggerUI(c =>
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "Microservice.Demo.Report.API");

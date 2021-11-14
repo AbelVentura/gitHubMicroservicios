@@ -4,6 +4,7 @@ import { ICreatePolicyCommand } from './icreate-policy-command';
 import { Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { ICreatePolicyResult } from './icreate-policy-result';
+import { IPolicy } from '../../../models/ipolicy';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,7 @@ export class PoliciesService {
   //baseUrl = `${this.window.location.protocol}//${this.window.location.hostname}:${this.port}`;
   baseUrl = `http://${this.window.location.hostname}:${this.port}`;
   policiesApiUrl = this.baseUrl + '/api/policies';
-
+  reportsApiUrl = this.baseUrl + '/api/report';
   constructor(
     private http: HttpClient,
     @Inject('Window') private window: Window
@@ -21,6 +22,11 @@ export class PoliciesService {
 
   CreatePolicy(createPolicyCommand: ICreatePolicyCommand): Observable<ICreatePolicyResult> {
     return this.http.post<ICreatePolicyResult>(this.policiesApiUrl, createPolicyCommand)
+      .pipe(catchError(this.handleError));
+  }
+
+  getPoliciesReport(): Observable<IPolicy[]> {
+    return this.http.get<IPolicy[]>(this.reportsApiUrl)
       .pipe(catchError(this.handleError));
   }
 
