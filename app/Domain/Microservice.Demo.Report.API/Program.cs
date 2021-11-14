@@ -6,6 +6,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Logging.Debug;
+using Steeltoe.Extensions.Configuration.ConfigServer;
 
 namespace Microservice.Demo.Report.API
 {
@@ -37,5 +39,5 @@ namespace Microservice.Demo.Report.API
                     webBuilder.UseStartup<Startup>();
                 });
     }
-    }
 }
+
