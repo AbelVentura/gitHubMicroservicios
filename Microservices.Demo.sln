@@ -52,8 +52,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ocelot.Provider.Eureka", "t
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ocelot", "tools\Ocelot\Ocelot\Ocelot.csproj", "{DF38CF8D-BA70-4FEA-967B-D4A9D858F268}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microservice.Demo.Report.API", "app\Domain\Microservice.Demo.Report.API\Microservice.Demo.Report.API.csproj", "{15C1C39A-A01F-4FDB-B723-0F6FE0B106DB}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -124,10 +122,6 @@ Global
 		{DF38CF8D-BA70-4FEA-967B-D4A9D858F268}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DF38CF8D-BA70-4FEA-967B-D4A9D858F268}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DF38CF8D-BA70-4FEA-967B-D4A9D858F268}.Release|Any CPU.Build.0 = Release|Any CPU
-		{15C1C39A-A01F-4FDB-B723-0F6FE0B106DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{15C1C39A-A01F-4FDB-B723-0F6FE0B106DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{15C1C39A-A01F-4FDB-B723-0F6FE0B106DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{15C1C39A-A01F-4FDB-B723-0F6FE0B106DB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -152,7 +146,6 @@ Global
 		{5EB62E7A-98FB-4010-BC32-31D102627359} = {F10B0E4B-6DF1-4FC2-A223-B7097DA00500}
 		{C869153E-447C-4E40-A1B2-52C92FFD05A9} = {5EB62E7A-98FB-4010-BC32-31D102627359}
 		{DF38CF8D-BA70-4FEA-967B-D4A9D858F268} = {5EB62E7A-98FB-4010-BC32-31D102627359}
-		{15C1C39A-A01F-4FDB-B723-0F6FE0B106DB} = {18B53A6A-73C2-4CA8-9B64-EBC8DE96F7BF}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {77DDFB34-D1A7-4826-B16C-FCEA9CEF267F}
