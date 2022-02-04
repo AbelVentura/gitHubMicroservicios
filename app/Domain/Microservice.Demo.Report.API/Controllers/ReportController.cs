@@ -18,7 +18,7 @@ namespace Microservice.Demo.Report.API.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult> Get()
+        public async Task<ActionResult> GetAll()
         {
             return new JsonResult(await _reportApplicationService.GetAllPolicyAsync());
         }
