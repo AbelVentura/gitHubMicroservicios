@@ -24,6 +24,7 @@ const routes: Routes = [
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'products', loadChildren: () => import('./products/products.module').then(m => m.ProductsModule) },
       { path: 'policies', loadChildren: () => import('./policies/policies.module').then(m => m.PoliciesModule) },
+      { path: 'report', loadChildren: () => import('./policies/policies.module').then(m => m.PoliciesModule) },
       { path: 'chat', component: ChatComponent }
     ]
   },
@@ -35,7 +36,7 @@ const routes: Routes = [
   declarations: [
     AppComponent,
     SideNavComponent,
-    PoliciesComponent,
+    //PoliciesComponent,
     ChatComponent,
     HomeComponent,
     LoginComponent

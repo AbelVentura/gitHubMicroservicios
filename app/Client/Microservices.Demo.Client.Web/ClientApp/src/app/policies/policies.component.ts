@@ -7,20 +7,10 @@ import { PoliciesService } from '../services/data/policies/policies.service';
   styleUrls: ['./policies.component.scss']
 })
 export class PoliciesComponent implements OnInit {
-  policies: IPolicy[] = [];
   constructor(
     private policiesService: PoliciesService,
   ) { }
 
   ngOnInit(): void {
-    this.getPoliciesReport();
   }
-
-  getPoliciesReport() {
-    this.policiesService.getPoliciesReport()
-      .subscribe((response: IPolicy[]) => {
-        this.policies = response;
-      });
-  }
-
 }
