@@ -101,9 +101,9 @@
       "DangerousAcceptAnyServerCertificateValidator": true
     },
     {
-      "DownstreamPathTemplate": "/api/Report",
+      "DownstreamPathTemplate": "/api/Reports",
       "DownstreamScheme": "https",
-      "UpstreamPathTemplate": "/api/Report",
+      "UpstreamPathTemplate": "/api/Reports",
       "ServiceName": "Microservices.Demo.Report.API",
       "UpstreamHttpMethod": [ "Get" ],
       "FileCacheOptions": { "TtlSeconds": 15 },
@@ -114,7 +114,10 @@
       "RouteClaimsRequirement": {
         "userType": "SALESMAN"
       },
-      "DangerousAcceptAnyServerCertificateValidator": true
+      "DangerousAcceptAnyServerCertificateValidator": true,
+      "AddHeadersToRequest": {
+        "AgentLogin": "Claims[http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier] > value[0] > |"
+      }
     }
   ],
   "GlobalConfiguration": {

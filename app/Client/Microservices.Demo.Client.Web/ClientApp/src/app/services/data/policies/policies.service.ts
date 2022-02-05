@@ -14,7 +14,7 @@ export class PoliciesService {
   //baseUrl = `${this.window.location.protocol}//${this.window.location.hostname}:${this.port}`;
   baseUrl = `http://${this.window.location.hostname}:${this.port}`;
   policiesApiUrl = this.baseUrl + '/api/policies';
-  reportsApiUrl = this.baseUrl + '/api/report';
+  reportsApiUrl = this.baseUrl + '/api/reports';
   constructor(
     private http: HttpClient,
     @Inject('Window') private window: Window

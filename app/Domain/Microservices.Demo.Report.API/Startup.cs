@@ -22,6 +22,7 @@ namespace Microservices.Demo.Report.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDiscoveryClient(Configuration);
+            services.AddDiscoveryClient(Configuration);
 
             services.AddSwaggerGen(c =>
             {
