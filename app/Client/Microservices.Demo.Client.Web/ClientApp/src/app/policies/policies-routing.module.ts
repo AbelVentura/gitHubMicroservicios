@@ -9,8 +9,8 @@ const routes: Routes = [
   {
     path: '', component: PoliciesComponent,
     children: [
-      { path: 'list', component: PolicytListComponent },
       { path: 'fromOffer/:offerNumber', component: PolicyCreateComponent },
+      { path: 'list', component: PolicytListComponent }
     ]
   }
 ];

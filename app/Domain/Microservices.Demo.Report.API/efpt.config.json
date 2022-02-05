@@ -1,0 +1,78 @@
+﻿{
+   "CodeGenerationMode": 0,
+   "ContextClassName": "MicroservicesDemoPolicyDBContext",
+   "ContextNamespace": null,
+   "DefaultDacpacSchema": null,
+   "FilterSchemas": false,
+   "IncludeConnectionString": false,
+   "ModelNamespace": "Data\/Context",
+   "OutputContextPath": null,
+   "OutputPath": "Data\/Entities",
+   "ProjectRootNamespace": "Microservices.Demo.Report.API",
+   "Schemas": null,
+   "SelectedHandlebarsLanguage": 0,
+   "SelectedToBeGenerated": 0,
+   "Tables": [
+      {
+         "Name": "[dbo].[Address]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Message]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Offer]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[OfferCover]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[OfferStatus]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Policy]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[PolicyCover]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[PolicyHolder]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[PolicyStatus]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[PolicyValidityPeriod]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[PolicyVersion]",
+         "ObjectType": 0
+      }
+   ],
+   "UiHint": "..\\..\\db\\Microservices.Demo.Policy.DB\\Microservices.Demo.Policy.DB.sqlproj",
+   "UseBoolPropertiesWithoutDefaultSql": false,
+   "UseDatabaseNames": false,
+   "UseDbContextSplitting": true,
+   "UseFluentApiOnly": true,
+   "UseHandleBars": false,
+   "UseInflector": true,
+   "UseLegacyPluralizer": false,
+   "UseManyToManyEntity": false,
+   "UseNoConstructor": false,
+   "UseNoDefaultConstructor": false,
+   "UseNoNavigations": false,
+   "UseNoObjectFilter": false,
+   "UseNodaTime": false,
+   "UseNullableReferences": false,
+   "UseSchemaFolders": false,
+   "UseSpatial": false
+}

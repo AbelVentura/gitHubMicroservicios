@@ -9,20 +9,20 @@ import { IPolicy } from '../../models/ipolicy';
 })
 export class PolicytListComponent implements OnInit {
   title: string;
-  products: IPolicy[] = [];
+  policies: IPolicy[] = [];
 
   constructor(
     private policyService: PoliciesService,
   ) { }
 
   ngOnInit(): void {
-    this.getProducts();
+    this.getPolicies();
   }
 
-  getProducts() {
+  getPolicies() {
     this.policyService.getPoliciesReport()
       .subscribe((response: IPolicy[]) => {
-        this.products = response;
+        this.policies = response;
       });
   }
 }

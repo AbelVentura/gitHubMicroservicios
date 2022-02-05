@@ -1,11 +1,20 @@
+using MediatR;
+using Microservices.Demo.Report.API.Application;
+using Microservices.Demo.Report.API.CQRS.Queries.Policies;
+using Microservices.Demo.Report.API.Data.Context;
+using Microservices.Demo.Report.API.Infrastructure.Configuration;
+using Microservices.Demo.Report.API.Infrastructure.Data;
+using Microservices.Demo.Report.API.Infrastructure.Data.Repository;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using Newtonsoft.Json.Serialization;
 using Steeltoe.Discovery.Client;
+using System.Reflection;
 
 namespace Microservices.Demo.Report.API
 {
@@ -22,7 +31,12 @@ namespace Microservices.Demo.Report.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDiscoveryClient(Configuration);
-            services.AddDiscoveryClient(Configuration);
+            //.AddConfigurations(Configuration);
+            services.AddMediatR(Assembly.GetExecutingAssembly());
+            services.AddMediatR(typeof(GetPoliciesQuery).GetTypeInfo().Assembly);
+            services.AddApplicationServices();
+            services.AddScoped<IPolicyRepository, PolicyRepository>();
+            services.AddDbContext<MicroservicesDemoPolicyDBContext>();
 
             services.AddSwaggerGen(c =>
             {
@@ -42,6 +56,10 @@ namespace Microservices.Demo.Report.API
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+            }
+            else
+            {
+                app.UseHsts();
             }
 
             app.UseDiscoveryClient();
