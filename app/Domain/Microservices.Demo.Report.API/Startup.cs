@@ -31,13 +31,12 @@ namespace Microservices.Demo.Report.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDiscoveryClient(Configuration);
-            //.AddConfigurations(Configuration);
             services.AddMediatR(Assembly.GetExecutingAssembly());
             services.AddMediatR(typeof(GetPoliciesQuery).GetTypeInfo().Assembly);
+            //services.AddMediatR(typeof(GetPoliciesQuery).GetTypeInfo().Assembly);
             services.AddApplicationServices();
-            services.AddScoped<IPolicyRepository, PolicyRepository>();
-            services.AddDbContext<MicroservicesDemoPolicyDBContext>();
-
+            //services.AddScoped<IPolicyRepository, PolicyRepository>();
+            services.AddScoped(typeof(IPolicyRepository), typeof(PolicyRepository));
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Microservices.Demo.Report.API", Version = "v1" });
